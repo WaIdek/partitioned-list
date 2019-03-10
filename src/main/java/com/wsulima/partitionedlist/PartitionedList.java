@@ -23,11 +23,11 @@ public class PartitionedList<T> extends AbstractList<List<T>> {
      * Static method giving as a result list of given list's subpartitions
      *
      * @param list
-     * @param partitionSize
+     * @param size
      * @return list of subpartitions lists
      */
-    public static <T> List<List<T>> partition(List<T> list, int partitionSize) {
-        return new PartitionedList(list, partitionSize);
+    public static <T> List<List<T>> partition(List<T> list, int size) {
+        return new PartitionedList(list, size);
     }
 
 
