@@ -3,6 +3,9 @@ package com.wsulima.partitionedlist;
 import java.util.AbstractList;
 import java.util.List;
 
+/**
+ * List's decorator dividing list into subpartitions of a given size.
+ */
 public class PartitionedList<T> extends AbstractList<List<T>> {
 
     private final List<T> baseList;
@@ -11,8 +14,8 @@ public class PartitionedList<T> extends AbstractList<List<T>> {
     /**
      * Constructor
      *
-     * @param list
-     * @param partitionSize
+     * @param list          list to partition
+     * @param partitionSize partition size
      */
     public PartitionedList(List<T> list, int partitionSize) {
         this.baseList = list;
@@ -20,10 +23,10 @@ public class PartitionedList<T> extends AbstractList<List<T>> {
     }
 
     /**
-     * Static method giving as a result list of given list's subpartitions
+     * Static method giving as a result a list of given list's subpartitions
      *
-     * @param list
-     * @param size
+     * @param list list to partition
+     * @param size partition size
      * @return list of subpartitions lists
      */
     public static <T> List<List<T>> partition(List<T> list, int size) {
@@ -53,5 +56,13 @@ public class PartitionedList<T> extends AbstractList<List<T>> {
     @Override
     public int size() {
         return (baseList.size() + partitionSize - 1) / partitionSize;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    @Override
+    public boolean isEmpty() {
+        return this.baseList.isEmpty();
     }
 }
